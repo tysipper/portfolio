@@ -27,7 +27,6 @@
       line-height: 1.6;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -67,7 +66,6 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -77,9 +75,7 @@
       margin: 0 auto;
     }
 
-    .hero-inner {
-      max-width: 680px;
-    }
+    .hero-inner { max-width: 680px; }
 
     .hero-eyebrow {
       font-size: 0.8rem;
@@ -107,10 +103,7 @@
       line-height: 1.75;
     }
 
-    .hero-desc strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
+    .hero-desc strong { color: var(--ink); font-weight: 500; }
 
     .btn {
       display: inline-flex;
@@ -124,15 +117,8 @@
       transition: all 0.2s;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
 
     .btn-ghost {
       background: transparent;
@@ -141,12 +127,8 @@
       margin-left: 0.75rem;
     }
 
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* DIVIDER */
     .section-divider {
       width: 100%;
       height: 1px;
@@ -155,7 +137,6 @@
       margin: 0 auto;
     }
 
-    /* SECTIONS */
     section {
       max-width: 960px;
       margin: 0 auto;
@@ -172,47 +153,30 @@
     }
 
     /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .skill-card {
-      background: var(--white);
-      padding: 1.75rem 1.5rem;
-      transition: background 0.2s;
-    }
-
-    .skill-card:hover { background: var(--subtle); }
-
-    .skill-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent-light);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .skill-card h3 {
-      font-size: 0.95rem;
+    .skills-group { margin-bottom: 2.5rem; }
+    .skills-group-title {
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--ink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
     }
 
-    .skill-card p {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.5;
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--subtle);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.83rem;
+      color: var(--ink);
+      font-weight: 400;
     }
 
     /* ABOUT */
@@ -238,11 +202,7 @@
       gap: 1.25rem;
     }
 
-    .detail-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
+    .detail-row { display: flex; flex-direction: column; gap: 0.2rem; }
 
     .detail-label {
       font-size: 0.72rem;
@@ -252,11 +212,7 @@
       color: var(--muted);
     }
 
-    .detail-value {
-      font-size: 0.95rem;
-      color: var(--ink);
-      font-weight: 400;
-    }
+    .detail-value { font-size: 0.95rem; color: var(--ink); font-weight: 400; }
 
     /* CONTACT */
     .contact-inner {
@@ -279,7 +235,9 @@
       line-height: 1.7;
     }
 
-    /* FOOTER */
+    .contact-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-buttons .btn-ghost { margin-left: 0; }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem;
@@ -288,23 +246,18 @@
       color: var(--muted);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
     }
 
-    /* FADE IN */
     .fade-in {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -320,7 +273,7 @@
 
   <div class="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Management Information Systems</p>
+      <p class="hero-eyebrow">MIS Student &mdash; Santa Clara University &rsquo;28</p>
       <h1 class="hero-name">Ty<br>Sipper</h1>
       <p class="hero-desc">
         I build systems where <strong>data meets decisions</strong>. Focused on process improvement, business analytics, and bridging the gap between technology and the people who use it.
@@ -335,37 +288,60 @@
   <div class="section-divider"></div>
 
   <section id="skills">
-    <p class="section-label fade-in">What I bring</p>
-    <div class="skills-grid fade-in">
-      <div class="skill-card">
-        <div class="skill-icon">📊</div>
-        <h3>Data Analysis</h3>
-        <p>Turning raw data into clear, actionable insights using Excel, SQL, and visualization tools.</p>
+    <p class="section-label fade-in">Skills</p>
+
+    <div class="fade-in">
+      <div class="skills-group">
+        <p class="skills-group-title">Data & Analytics</p>
+        <div class="skills-tags">
+          <span class="tag">Excel</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">Statistical Analysis</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">⚙️</div>
-        <h3>Process Improvement</h3>
-        <p>Identifying inefficiencies and designing workflows that reduce friction and improve outcomes.</p>
+
+      <div class="skills-group">
+        <p class="skills-group-title">Systems & Technology</p>
+        <div class="skills-tags">
+          <span class="tag">ERP Systems</span>
+          <span class="tag">SAP</span>
+          <span class="tag">CRM Platforms</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Systems Analysis</span>
+          <span class="tag">IT Infrastructure</span>
+          <span class="tag">Cybersecurity Fundamentals</span>
+          <span class="tag">Cloud Computing</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">💻</div>
-        <h3>Systems Thinking</h3>
-        <p>Understanding how technology, people, and processes connect to deliver business value.</p>
+
+      <div class="skills-group">
+        <p class="skills-group-title">Development</p>
+        <div class="skills-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Web Deployment</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">🌐</div>
-        <h3>Web Development</h3>
-        <p>Building functional, clean front-end experiences with HTML, CSS, and JavaScript.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">🗂️</div>
-        <h3>Project Management</h3>
-        <p>Coordinating tasks, communicating across stakeholders, and delivering on time.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">🤝</div>
-        <h3>Stakeholder Communication</h3>
-        <p>Translating technical concepts into clear narratives for business audiences.</p>
+
+      <div class="skills-group">
+        <p class="skills-group-title">Business & Strategy</p>
+        <div class="skills-tags">
+          <span class="tag">Process Improvement</span>
+          <span class="tag">Project Management</span>
+          <span class="tag">Stakeholder Communication</span>
+          <span class="tag">Requirements Gathering</span>
+          <span class="tag">Supply Chain Systems</span>
+          <span class="tag">Financial Systems</span>
+          <span class="tag">Change Management</span>
+          <span class="tag">Agile Methodology</span>
+        </div>
       </div>
     </div>
   </section>
@@ -373,35 +349,43 @@
   <div class="section-divider"></div>
 
   <section id="about">
-    <p class="section-label fade-in">Background</p>
+    <p class="section-label fade-in">About</p>
     <div class="about-grid fade-in">
       <div class="about-text">
         <p>
-          I'm a <strong>Management Information Systems student</strong> passionate about using technology to solve real business problems. I'm drawn to work that sits at the intersection of data, systems, and people.
+          I'm a <strong>Management Information Systems student at Santa Clara University</strong>, graduating in 2028. I'm passionate about using technology to solve real business problems and drawn to work at the intersection of data, systems, and people.
         </p>
         <p>
-          Whether it's building a process improvement proposal, analyzing a dataset, or designing a clean user-facing product, I care about work that is <strong>clear, purposeful, and well-executed</strong>.
+          Whether it's a process improvement proposal, a data model, or a clean user-facing product, I care about work that is <strong>clear, purposeful, and well-executed</strong>.
         </p>
         <p>
-          I'm currently exploring opportunities in finance operations, technology consulting, and data-driven product roles where I can contribute from day one.
+          I'm currently exploring opportunities in finance operations, technology consulting, and data-driven roles. Open to positions in the <strong>Washington D.C. area</strong> and the <strong>San Francisco Bay Area</strong>.
         </p>
       </div>
       <div class="about-details">
         <div class="detail-row">
-          <span class="detail-label">Field of Study</span>
+          <span class="detail-label">University</span>
+          <span class="detail-value">Santa Clara University</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Major</span>
           <span class="detail-value">Management Information Systems</span>
         </div>
         <div class="detail-row">
-          <span class="detail-label">Interests</span>
-          <span class="detail-value">Process Improvement, Business Analytics, Web Development</span>
+          <span class="detail-label">Graduation</span>
+          <span class="detail-value">2028</span>
         </div>
         <div class="detail-row">
-          <span class="detail-label">LinkedIn</span>
-          <span class="detail-value"><a href="https://www.linkedin.com/in/tysipper/" target="_blank" style="color: var(--accent); text-decoration: none;">linkedin.com/in/tysipper</a></span>
+          <span class="detail-label">Locations</span>
+          <span class="detail-value">Washington D.C. &bull; San Francisco Bay Area</span>
         </div>
         <div class="detail-row">
           <span class="detail-label">Open To</span>
           <span class="detail-value">Internships and Project-Based Work</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">LinkedIn</span>
+          <span class="detail-value"><a href="https://www.linkedin.com/in/tysipper/" target="_blank" style="color: var(--accent); text-decoration: none;">linkedin.com/in/tysipper</a></span>
         </div>
       </div>
     </div>
@@ -413,7 +397,10 @@
     <div class="contact-inner fade-in">
       <h2 class="contact-heading">Let's connect.</h2>
       <p class="contact-sub">I'm open to internships, micro-projects, and conversations about where technology meets business strategy.</p>
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/tysipper/" target="_blank" rel="noopener">View LinkedIn Profile</a>
+      <div class="contact-buttons">
+        <a class="btn btn-primary" href="mailto:tysipper@gmail.com">tysipper@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/tysipper/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </section>
 
