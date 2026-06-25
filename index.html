@@ -163,11 +163,7 @@
       margin-bottom: 1rem;
     }
 
-    .skills-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .tag {
       background: var(--subtle);
@@ -177,6 +173,88 @@
       font-size: 0.83rem;
       color: var(--ink);
       font-weight: 400;
+    }
+
+    /* PROJECT */
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .project-col {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .project-col:last-child { border-right: none; }
+
+    .project-col-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-col ul li {
+      font-size: 0.85rem;
+      color: var(--ink);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-col ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
     }
 
     /* ABOUT */
@@ -196,11 +274,7 @@
 
     .about-text p strong { color: var(--ink); font-weight: 500; }
 
-    .about-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+    .about-details { display: flex; flex-direction: column; gap: 1.25rem; }
 
     .detail-row { display: flex; flex-direction: column; gap: 0.2rem; }
 
@@ -215,11 +289,7 @@
     .detail-value { font-size: 0.95rem; color: var(--ink); font-weight: 400; }
 
     /* CONTACT */
-    .contact-inner {
-      text-align: center;
-      max-width: 520px;
-      margin: 0 auto;
-    }
+    .contact-inner { text-align: center; max-width: 520px; margin: 0 auto; }
 
     .contact-heading {
       font-family: 'DM Serif Display', serif;
@@ -249,6 +319,9 @@
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
+      .project-body { grid-template-columns: 1fr; }
+      .project-col { border-right: none; border-bottom: 1px solid var(--border); }
+      .project-col:last-child { border-bottom: none; }
     }
 
     .fade-in {
@@ -266,6 +339,7 @@
     <span class="nav-name">Ty Sipper</span>
     <ul class="nav-links">
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -289,10 +363,9 @@
 
   <section id="skills">
     <p class="section-label fade-in">Skills</p>
-
     <div class="fade-in">
       <div class="skills-group">
-        <p class="skills-group-title">Data & Analytics</p>
+        <p class="skills-group-title">Data &amp; Analytics</p>
         <div class="skills-tags">
           <span class="tag">Excel</span>
           <span class="tag">SQL</span>
@@ -303,9 +376,8 @@
           <span class="tag">Statistical Analysis</span>
         </div>
       </div>
-
       <div class="skills-group">
-        <p class="skills-group-title">Systems & Technology</p>
+        <p class="skills-group-title">Systems &amp; Technology</p>
         <div class="skills-tags">
           <span class="tag">ERP Systems</span>
           <span class="tag">SAP</span>
@@ -317,7 +389,6 @@
           <span class="tag">Cloud Computing</span>
         </div>
       </div>
-
       <div class="skills-group">
         <p class="skills-group-title">Development</p>
         <div class="skills-tags">
@@ -329,9 +400,8 @@
           <span class="tag">Web Deployment</span>
         </div>
       </div>
-
       <div class="skills-group">
-        <p class="skills-group-title">Business & Strategy</p>
+        <p class="skills-group-title">Business &amp; Strategy</p>
         <div class="skills-tags">
           <span class="tag">Process Improvement</span>
           <span class="tag">Project Management</span>
@@ -341,6 +411,52 @@
           <span class="tag">Financial Systems</span>
           <span class="tag">Change Management</span>
           <span class="tag">Agile Methodology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="projects">
+    <p class="section-label fade-in">Projects</p>
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <p class="project-eyebrow">OMIS 105 &mdash; Santa Clara University &mdash; Team of 5</p>
+        <h2 class="project-title">Whatcoffee Point-of-Sale Database</h2>
+        <p class="project-desc">
+          Designed and implemented a relational database for a local Santa Clara coffee shop to integrate their point-of-sale system. The database connects front-of-house and back-of-house operations, enabling real-time tracking of orders, inventory, revenue, and customer data.
+        </p>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <p class="project-col-label">What We Built</p>
+          <ul>
+            <li>ER model with 6 entities</li>
+            <li>Relational schema normalized to 3NF</li>
+            <li>Full data dictionary</li>
+            <li>SQL table creation scripts</li>
+            <li>Populated database with realistic sample data</li>
+          </ul>
+        </div>
+        <div class="project-col">
+          <p class="project-col-label">SQL Queries Developed</p>
+          <ul>
+            <li>Employee order volume by time range</li>
+            <li>Average selling price with markup calculations</li>
+            <li>Customer order history across date ranges</li>
+            <li>Multi-table JOINs with GROUP BY and HAVING</li>
+          </ul>
+        </div>
+        <div class="project-col">
+          <p class="project-col-label">Tools &amp; Concepts</p>
+          <ul>
+            <li>MySQL / SQL Workbench</li>
+            <li>Entity-Relationship Modeling</li>
+            <li>Third Normal Form (3NF)</li>
+            <li>Primary &amp; Foreign Keys</li>
+            <li>Database normalization</li>
+          </ul>
         </div>
       </div>
     </div>
