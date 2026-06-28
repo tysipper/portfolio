@@ -25,7 +25,7 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
 
-  <!-- Google Analytics - replace G-LQHV9HN5KN with your real ID -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQHV9HN5KN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -168,6 +168,7 @@
     }
     .hero-desc strong { color: var(--ink); font-weight: 500; }
 
+    /* CHANGE 1: Updated internship callout text */
     .internship-callout {
       display: inline-flex;
       align-items: center;
@@ -242,7 +243,7 @@
       margin-bottom: 2.5rem;
     }
 
-    /* Skills filter */
+    /* CHANGE 2: Trimmed skills — only keeping what's backed by real experience */
     .skills-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
     .filter-btn {
       background: none;
@@ -319,7 +320,9 @@
       white-space: nowrap;
     }
 
-    /* Project card */
+    /* Project cards */
+    .projects-list { display: flex; flex-direction: column; gap: 2rem; }
+
     .project-card {
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -337,6 +340,44 @@
       font-size: 1.6rem; color: var(--ink); margin-bottom: 0.75rem;
     }
     .project-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 640px; }
+
+    /* CHANGE 4: ER diagram visual for Whatcoffee */
+    .project-visual {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--subtle);
+    }
+    .project-visual-label {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+    .er-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      row-gap: 0.75rem;
+    }
+    .er-entity {
+      background: var(--bg);
+      border: 1.5px solid var(--accent);
+      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .er-arrow {
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0 0.3rem;
+      flex-shrink: 0;
+    }
+
     .project-body { display: grid; grid-template-columns: 1fr 1fr 1fr; }
     .project-col { padding: 1.5rem 2rem; border-right: 1px solid var(--border); }
     .project-col:last-child { border-right: none; }
@@ -357,6 +398,9 @@
       background: var(--accent); border-radius: 50%;
     }
 
+    /* Second project — two-col body */
+    .project-body-2col { display: grid; grid-template-columns: 1fr 1fr; }
+
     /* About */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .about-text p { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
@@ -366,7 +410,7 @@
     .detail-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
     .detail-value { font-size: 0.95rem; color: var(--ink); }
 
-    /* Notes/Blog */
+    /* Notes */
     .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .note-card {
       border: 1px solid var(--border);
@@ -379,16 +423,6 @@
     .note-date { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
     .note-title { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
     .note-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-    .notes-empty {
-      border: 1px dashed var(--border);
-      border-radius: 10px;
-      padding: 2.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      grid-column: 1 / -1;
-    }
-    .notes-empty strong { display: block; color: var(--ink); margin-bottom: 0.3rem; font-size: 1rem; }
 
     /* Contact */
     .contact-inner { text-align: center; max-width: 520px; margin: 0 auto; }
@@ -426,11 +460,13 @@
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
       .project-body { grid-template-columns: 1fr; }
+      .project-body-2col { grid-template-columns: 1fr; }
       .project-col { border-right: none; border-bottom: 1px solid var(--border); }
       .project-col:last-child { border-bottom: none; }
       .notes-grid { grid-template-columns: 1fr; }
       .experience-item { grid-template-columns: 1fr; }
       .exp-meta { text-align: left; }
+      .er-diagram { justify-content: flex-start; }
     }
 
     .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -465,9 +501,10 @@
         <p class="hero-desc">
           I build systems where <strong>data meets decisions</strong>. Focused on process improvement, business analytics, and bridging the gap between technology and the people who use it.
         </p>
+        <!-- CHANGE 1: Updated to reflect actual timeline -->
         <div class="internship-callout">
           <span class="dot"></span>
-          Seeking Summer 2026 Internships - D.C. &amp; Bay Area
+          Open to Fall 2026 &amp; Summer 2027 Internships &mdash; D.C. &amp; Bay Area
         </div>
         <div>
           <a class="btn btn-primary" href="#contact">Get in touch</a>
@@ -485,7 +522,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- SKILLS -->
+  <!-- SKILLS — CHANGE 2: Trimmed to only what's on the resume -->
   <section id="skills">
     <p class="section-label fade-in">Skills</p>
     <div class="skills-filter fade-in">
@@ -499,38 +536,41 @@
       <div class="skills-group" data-category="data">
         <p class="skills-group-title">Data &amp; Analytics</p>
         <div class="skills-tags">
-          <span class="tag">Excel</span><span class="tag">SQL</span>
-          <span class="tag">Tableau</span><span class="tag">Power BI</span>
-          <span class="tag">Data Modeling</span><span class="tag">Business Intelligence</span>
-          <span class="tag">Statistical Analysis</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Excel (PivotTables, VLOOKUP)</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">Business Intelligence</span>
         </div>
       </div>
       <div class="skills-group" data-category="systems">
         <p class="skills-group-title">Systems &amp; Technology</p>
         <div class="skills-tags">
-          <span class="tag">ERP Systems</span><span class="tag">SAP</span>
-          <span class="tag">Adobe Experience Manager</span><span class="tag">WordPress</span>
-          <span class="tag">CRM Platforms</span><span class="tag">Database Design</span>
-          <span class="tag">Systems Analysis</span><span class="tag">IT Infrastructure</span>
-          <span class="tag">Cybersecurity Fundamentals</span><span class="tag">Cloud Computing</span>
+          <span class="tag">Adobe Experience Manager</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">SEO &amp; Accessibility</span>
+          <span class="tag">Content Migration</span>
+          <span class="tag">AV &amp; Media Systems</span>
         </div>
       </div>
       <div class="skills-group" data-category="dev">
         <p class="skills-group-title">Development</p>
         <div class="skills-tags">
-          <span class="tag">HTML</span><span class="tag">CSS</span>
-          <span class="tag">JavaScript</span><span class="tag">Python</span>
-          <span class="tag">GitHub</span><span class="tag">Web Deployment</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">GitHub</span>
         </div>
       </div>
       <div class="skills-group" data-category="business">
         <p class="skills-group-title">Business &amp; Strategy</p>
         <div class="skills-tags">
-          <span class="tag">Process Improvement</span><span class="tag">Project Management</span>
-          <span class="tag">Stakeholder Communication</span><span class="tag">Requirements Gathering</span>
-          <span class="tag">Supply Chain Systems</span><span class="tag">Financial Systems</span>
-          <span class="tag">Change Management</span><span class="tag">Agile Methodology</span>
-          <span class="tag">SEO &amp; Accessibility</span><span class="tag">Content Migration</span>
+          <span class="tag">Process Improvement</span>
+          <span class="tag">QA &amp; Issue Resolution</span>
+          <span class="tag">Cross-functional Collaboration</span>
+          <span class="tag">Stakeholder Communication</span>
+          <span class="tag">Event Planning &amp; Logistics</span>
         </div>
       </div>
     </div>
@@ -538,7 +578,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE — CHANGE 3: Sharpened fraternity bullet -->
   <section id="experience">
     <p class="section-label fade-in">Experience</p>
     <div class="experience-list fade-in">
@@ -581,7 +621,8 @@
           <p class="exp-role">Parents and Alumni Chair</p>
           <p class="exp-org">Zeta Beta Tau Fraternity</p>
           <ul class="exp-bullets">
-            <li>Increased alumni and parent engagement by 40% through 3+ annual events.</li>
+            <!-- CHANGE 3: Added mechanism behind the 40% claim -->
+            <li>Grew alumni and parent event attendance by 40% over one year by launching a structured outreach calendar — including targeted emails, a recurring alumni newsletter, and 3 annual in-person events.</li>
             <li>Boosted online engagement by 25% via targeted email campaigns and social media updates.</li>
             <li>Managed budgets, logistics, and communications to ensure seamless execution.</li>
           </ul>
@@ -597,48 +638,101 @@
 
   <div class="section-divider"></div>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS — CHANGE 4: Added second project + ER diagram visual for Whatcoffee -->
   <section id="projects">
     <p class="section-label fade-in">Projects</p>
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <p class="project-eyebrow">OMIS 105 - Santa Clara University - Team of 5</p>
-        <h2 class="project-title">Whatcoffee Point-of-Sale Database</h2>
-        <p class="project-desc">
-          Designed and implemented a relational database for a local Santa Clara coffee shop to integrate their point-of-sale system. The database connects front-of-house and back-of-house operations, enabling real-time tracking of orders, inventory, revenue, and customer data.
-        </p>
+    <div class="projects-list">
+
+      <!-- Project 1: Whatcoffee -->
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <p class="project-eyebrow">OMIS 105 — Santa Clara University — Team of 5</p>
+          <h2 class="project-title">Whatcoffee Point-of-Sale Database</h2>
+          <p class="project-desc">
+            Designed and implemented a relational database for a local Santa Clara coffee shop to integrate their point-of-sale system. The database connects front-of-house and back-of-house operations, enabling real-time tracking of orders, inventory, revenue, and customer data.
+          </p>
+        </div>
+        <!-- ER diagram visual -->
+        <div class="project-visual">
+          <p class="project-visual-label">Entity-Relationship Model (6 Entities)</p>
+          <div class="er-diagram">
+            <div class="er-entity">Customer</div>
+            <span class="er-arrow">──1:N──</span>
+            <div class="er-entity">Order</div>
+            <span class="er-arrow">──N:M──</span>
+            <div class="er-entity">MenuItem</div>
+            <span class="er-arrow">──N:1──</span>
+            <div class="er-entity">Category</div>
+            <span class="er-arrow" style="padding: 0 1rem; color: transparent;">|</span>
+            <div class="er-entity">Employee</div>
+            <span class="er-arrow">──1:N──</span>
+            <div class="er-entity">Inventory</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-col">
+            <p class="project-col-label">What We Built</p>
+            <ul>
+              <li>ER model with 6 entities</li>
+              <li>Relational schema normalized to 3NF</li>
+              <li>Full data dictionary</li>
+              <li>SQL table creation scripts</li>
+              <li>Populated database with realistic sample data</li>
+            </ul>
+          </div>
+          <div class="project-col">
+            <p class="project-col-label">SQL Queries Developed</p>
+            <ul>
+              <li>Employee order volume by time range</li>
+              <li>Average selling price with markup calculations</li>
+              <li>Customer order history across date ranges</li>
+              <li>Multi-table JOINs with GROUP BY and HAVING</li>
+            </ul>
+          </div>
+          <div class="project-col">
+            <p class="project-col-label">Tools &amp; Concepts</p>
+            <ul>
+              <li>MySQL / SQL Workbench</li>
+              <li>Entity-Relationship Modeling</li>
+              <li>Third Normal Form (3NF)</li>
+              <li>Primary &amp; Foreign Keys</li>
+              <li>Database normalization</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="project-body">
-        <div class="project-col">
-          <p class="project-col-label">What We Built</p>
-          <ul>
-            <li>ER model with 6 entities</li>
-            <li>Relational schema normalized to 3NF</li>
-            <li>Full data dictionary</li>
-            <li>SQL table creation scripts</li>
-            <li>Populated database with realistic sample data</li>
-          </ul>
+
+      <!-- Project 2: Whole Foods Order Fulfillment Analysis -->
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <p class="project-eyebrow">Personal Project — Operations &amp; Data Analysis</p>
+          <h2 class="project-title">Order Fulfillment Accuracy Tracker</h2>
+          <p class="project-desc">
+            Built an Excel-based tracking tool to analyze personal order fulfillment performance from my time as a Personal Shopper at Whole Foods. Modeled weekly order volume, substitution rates, and accuracy across 100+ weekly orders — then used the data to identify the categories with the highest substitution frequency and propose process improvements for real-time inventory gaps.
+          </p>
         </div>
-        <div class="project-col">
-          <p class="project-col-label">SQL Queries Developed</p>
-          <ul>
-            <li>Employee order volume by time range</li>
-            <li>Average selling price with markup calculations</li>
-            <li>Customer order history across date ranges</li>
-            <li>Multi-table JOINs with GROUP BY and HAVING</li>
-          </ul>
-        </div>
-        <div class="project-col">
-          <p class="project-col-label">Tools &amp; Concepts</p>
-          <ul>
-            <li>MySQL / SQL Workbench</li>
-            <li>Entity-Relationship Modeling</li>
-            <li>Third Normal Form (3NF)</li>
-            <li>Primary &amp; Foreign Keys</li>
-            <li>Database normalization</li>
-          </ul>
+        <div class="project-body project-body-2col">
+          <div class="project-col">
+            <p class="project-col-label">What I Built</p>
+            <ul>
+              <li>Weekly order log with accuracy rate tracking</li>
+              <li>Substitution frequency by product category</li>
+              <li>PivotTable summary of fulfillment trends</li>
+              <li>Recommendations for inventory gap reduction</li>
+            </ul>
+          </div>
+          <div class="project-col">
+            <p class="project-col-label">Tools &amp; Concepts</p>
+            <ul>
+              <li>Microsoft Excel (PivotTables, VLOOKUP)</li>
+              <li>Operational data tracking</li>
+              <li>Root cause analysis</li>
+              <li>Process improvement framing</li>
+            </ul>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -650,7 +744,7 @@
     <div class="about-grid fade-in">
       <div class="about-text">
         <p>
-          I'm a <strong>Management Information Systems student at Santa Clara University</strong> (Class of 2028), minoring in Business Analytics. I'm drawn to work at the intersection of data, systems, and the people who use them - whether that's streamlining a content migration, designing a database, or building tools that make decisions easier.
+          I'm a <strong>Management Information Systems student at Santa Clara University</strong> (Class of 2028), minoring in Business Analytics. I'm drawn to work at the intersection of data, systems, and the people who use them — whether that's streamlining a content migration, designing a database, or building tools that make decisions easier.
         </p>
         <p>
           Whether it's a process improvement proposal, a data model, or a clean user-facing product, I care about work that is <strong>clear, purposeful, and well-executed</strong>.
@@ -713,12 +807,12 @@
       <div class="note-card">
         <p class="note-date">March 2025</p>
         <p class="note-title">What I learned building a real database from scratch</p>
-        <p class="note-excerpt">In OMIS 105 we designed a full relational database for a local coffee shop. The hardest part wasn't SQL - it was the ER modeling stage. Getting the entities right before touching a single line of code determined everything downstream. Third normal form sounds abstract until you realize a bad schema means rewriting every query.</p>
+        <p class="note-excerpt">In OMIS 105 we designed a full relational database for a local coffee shop. The hardest part wasn't SQL — it was the ER modeling stage. Getting the entities right before touching a single line of code determined everything downstream. Third normal form sounds abstract until you realize a bad schema means rewriting every query.</p>
       </div>
       <div class="note-card">
         <p class="note-date">August 2025</p>
         <p class="note-title">Content migration at scale: what 1,000 pages teaches you about QA</p>
-        <p class="note-excerpt">At AARP I worked across WordPress, AEM, and DAM systems migrating thousands of pages of content. The bottleneck was never the migration itself - it was QA. Broken links and misformatted assets compound fast. Building a repeatable checklist early, and flagging issues before publication, was the difference between a 20% efficiency gain and a nightmare rollback.</p>
+        <p class="note-excerpt">At AARP I worked across WordPress, AEM, and DAM systems migrating thousands of pages of content. The bottleneck was never the migration itself — it was QA. Broken links and misformatted assets compound fast. Building a repeatable checklist early, and flagging issues before publication, was the difference between a 20% efficiency gain and a nightmare rollback.</p>
       </div>
     </div>
   </section>
